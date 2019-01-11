@@ -1,0 +1,20 @@
+syntax = "proto3";
+package com.example.grpc;
+
+// Transfer payload
+message TransferRequest {
+	string name = 1;
+	string city = 2;
+	int32 zip_code = 3;
+	repeated string address = 4;
+	int32 ssn = 5;
+}
+
+message TransferResponse {
+	string received_notice = 1;
+}
+
+service TransferService {
+	rpc transfer(TransferRequest) returns (TransferResponse);
+}
+
